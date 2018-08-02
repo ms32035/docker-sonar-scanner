@@ -1,6 +1,6 @@
 FROM openjdk:8
 
-ARG SCANNER_VERSION=3.1.0.1141
+ARG SCANNER_VERSION=3.2.0.1227
 
 RUN apt-get update && \
     apt-get -y dist-upgrade && \
