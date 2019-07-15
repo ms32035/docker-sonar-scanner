@@ -1,11 +1,9 @@
-FROM openjdk:8
+FROM openjdk:12
 
-ARG SCANNER_VERSION=3.3.0.1492
+ARG SCANNER_VERSION=4.0.0.1744
 
-RUN apt-get update && \
-    apt-get -y dist-upgrade && \
-    apt-get -y install unzip wget && \
-    wget -P /opt/ https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SCANNER_VERSION}-linux.zip && \
+RUN yum install install -y -q unzip wget && \
+    wget -P /opt/ https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SCANNER_VERSION}-linux.zip && \
     unzip -d /opt /opt/sonar-scanner-cli-${SCANNER_VERSION}-linux.zip  && \
     ln -s /opt/sonar-scanner-${SCANNER_VERSION}-linux/bin/sonar-scanner /bin/sonar-scanner && \
     rm -f /opt/sonar-scanner-cli-${SCANNER_VERSION}-linux.zip
